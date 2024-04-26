@@ -1,0 +1,96 @@
+:root {
+    --btn-padding-y: 0.5rem;
+    --btn-padding-x: 1rem;
+    --btn-font-size: 1rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black; /* Set background color to black */
+    background-image: url('Background.avif');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+#exitBtn {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 6px 12px;
+    background-color: #1688f9; /* Semi-transparent white background */
+    border-radius: 5px;
+}
+
+#exitBtn:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Lighter background on hover */
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#pcConfigLink {
+    text-decoration: none;
+}
+
+#pcConfigBtn {
+    padding: calc(var(--btn-padding-y) * 1.5) calc(var(--btn-padding-x) * 1.5);
+    background-color: #1688f9;
+    color: rgb(239, 224, 224);
+    border: none;
+    font-size: calc(var(--btn-font-size) * 1.5);
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+#pcConfigBtn:hover {
+    background-color: #555;
+}
+
+#pcConfigBtn:active {
+    transform: scale(1.1); /* Scale up when pressed */
+}
+
+/* Media Query for Responsive Button Size */
+@media (min-width: 480px) {
+    :root {
+        --btn-padding-y: 1rem; /* Larger padding for larger screens */
+        --btn-padding-x: 2rem; /* Larger padding for larger screens */
+        --btn-font-size: 1.5rem; /* Larger font size for larger screens */
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        --btn-padding-y: 1.5rem; /* Even larger padding for even larger screens */
+        --btn-padding-x: 3rem; /* Even larger padding for even larger screens */
+        --btn-font-size: 2rem; /* Even larger font size for even larger screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --btn-padding-y: 2rem; /* Even larger padding for even larger screens */
+        --btn-padding-x: 4rem; /* Even larger padding for even larger screens */
+        --btn-font-size: 2.5rem; /* Even larger font size for even larger screens */
+    }
+}

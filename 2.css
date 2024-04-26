@@ -1,0 +1,169 @@
+:root {
+    --btn-padding-y: 0.5rem;
+    --btn-padding-x: 1rem;
+    --btn-font-size: 1rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('Background.avif');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Ensure relative positioning for pseudo-element */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: -1; /* Place behind other content */
+}
+
+header {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+#exitBtn {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 6px 12px;
+    background-color: #1688f9; /* Semi-transparent white background */
+    border-radius: 5px;
+}
+
+#exitBtn:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Lighter background on hover */
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 20px; /* Add some top margin for space */
+}
+
+.pcOption {
+    margin: 10px; /* Add some margin between the images */
+    cursor: pointer;
+    position: relative; /* For positioning the title */
+    overflow: hidden; /* Hide overflow for image size */
+    flex: 1 1 50%; /* Initial width, grows as needed */
+    max-width: calc(50% - 20px); /* Limit width for responsiveness */
+    text-align: center; /* Center align the contents */
+    border: 2px solid transparent; /* Initially transparent border */
+    border-radius: 8px;
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+}
+
+.pcOption .imageContainer {
+    position: relative;
+    height: 30vh; /* Set height as 30% of viewport height */
+}
+
+.pcOption img {
+    max-width: 80%; /* Set image max width to 80% of viewport width */
+    max-height: 100%; /* Ensure image takes full height of container */
+    display: block; /* Ensure images do not have extra space below */
+    margin: 0 auto; /* Center the image horizontally */
+    border-radius: 8px; /* Rounded corners for the image */
+    object-fit: cover; /* Stretch image to cover container */
+}
+
+.pcOption .pcTitle {
+    color: white;
+    font-size: 2.5vw; /* Set font size as 2.5% of viewport width */
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 10px;
+    margin: 0;
+    opacity: 1; /* Always visible */
+    transition: opacity 0.3s ease;
+}
+
+.pcOption:hover .pcTitle {
+    opacity: 1; /* Show title on hover */
+}
+
+.pcOption.selected {
+    border: 2px solid #1688f9; /* Blue border when selected */
+}
+
+/* Media Query for Responsive Layout */
+@media (min-width: 768px) {
+    .pcOption {
+        flex: 1 1 calc(50% - 20px); /* Two images in a row with margin */
+        max-width: calc(50% - 20px); /* Limit width for responsiveness */
+    }
+
+    .pcOption .imageContainer {
+        height: 40vh; /* Increase image container height for larger screens */
+    }
+
+    .pcOption img {
+        border-radius: 8px; /* Rounded corners for the image */
+    }
+
+    .pcOption .pcTitle {
+        font-size: 3vw; /* Increase font size for larger screens */
+    }
+}
+
+#nextBtn,
+#returnBtn {
+    padding: calc(var(--btn-padding-y) * 1.5) calc(var(--btn-padding-x) * 1.5);
+    background-color: #1688f9;
+    color: rgb(239, 224, 224);
+    border: none;
+    font-size: calc(var(--btn-font-size) * 1.5);
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Smooth transition */
+    position: fixed;
+    bottom: 20px;
+    display: none;
+}
+
+#nextBtn:hover,
+#returnBtn:hover {
+    background-color: #555;
+}
+
+#nextBtn:active,
+#returnBtn:active {
+    transform: scale(1.1); /* Scale up when pressed */
+}
+
+.selected {
+    border: 0px solid #1688f9; /* Blue border when selected */
+}
+
+#nextBtn {
+    right: 20px; /* Position at bottom right */
+    bottom: 20px;
+}
+
+#returnBtn {
+    left: 20px; /* Position at bottom left */
+    bottom: 20px;
+}
